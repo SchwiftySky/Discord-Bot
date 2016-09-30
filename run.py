@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 # Mods who have more permissions
 #MOD_PERM = ['Schwifty Sky']
-WEATHER_API = 'abde6ad61b1403ac989911612f3de161'
+WEATHER_API = ''
 
 # Disable the SSL warning, that is printed to the console.
 requests.packages.urllib3.disable_warnings()
