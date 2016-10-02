@@ -1,7 +1,14 @@
+''' -- TODO List --
+    - Set up Logging
+    - Quests
+'''
+
 #!/usr/bin/python
+import aiohttp
 import cleverbot
 import discord
 import json
+#import logging
 #import os
 #import pickle
 import random
@@ -10,10 +17,12 @@ import requests.packages.urllib3
 import time
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from asyncio import coroutine
+import asyncio
 
 # Mods who have more permissions
 #MOD_PERM = ['Schwifty Sky']
-WEATHER_API = ''
+WEATHER_API = 'abde6ad61b1403ac989911612f3de161'
 
 # Disable the SSL warning, that is printed to the console.
 requests.packages.urllib3.disable_warnings()
@@ -131,9 +140,15 @@ def on_message(message):
     else:
         return None
 
+
 # Login
-client.connect()
-print("Logging in...")
-client.login('EMAIL', 'PASSWORD')
-client.accept_invite('https://discord.gg/xxxxxxx')
-print("Joined server.")
+EMAIL = ''
+PASSWRD = ''
+async def login(EMAIL, PASSWRD):
+    print("Logging in...")
+    await client.connect()
+    await client.login(EMAIL, PASSWRD)
+    await client.accept_invite('https://discord.gg/xxxxxxx')
+    print("Joined server.")
+
+login(EMAIL, PASSWRD)
