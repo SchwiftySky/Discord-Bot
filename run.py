@@ -9,8 +9,6 @@ import cleverbot
 import discord
 import json
 #import logging
-#import os
-#import pickle
 import random
 import requests
 import requests.packages.urllib3
