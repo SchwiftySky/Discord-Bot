@@ -1,9 +1,10 @@
+#!/usr/bin/python
 ''' -- TODO List --
     - Set up Logging
     - Quests
 '''
 
-#!/usr/bin/python
+
 #import aiohttp
 import asyncio
 import cleverbot
@@ -21,10 +22,9 @@ from bs4 import BeautifulSoup
 
 
 # Mods who have more permissions
-#MOD_PERM = ['']
+# MOD_PERM = ['Schwifty Sky']
 WEATHER_API = ''
-EMAIL = ''
-PASSWRD = ''
+BOT_TOKEN = ''
 # Disable the SSL warning, that is printed to the console.
 requests.packages.urllib3.disable_warnings()
 client = discord.Client()
@@ -104,26 +104,12 @@ def youtube_search(message):
         client.send_message(message.channel, link_list[rand_num])
 
 
-# Join other rooms
-def join_room(message):
-    author = message.author
-#    if author in MOD_PERM:
-    join_link = message.content.strip('!join ')
-    print("Joined $s" % join_link)
-    client.accept_invite(join_link)
-    client.send_message(message.channel, "The bot has joined!")
-#    else:
-#        client.send_message(message.channel, "Sorry %s, you don't have permission for that command." % author)
-
-
 # Commands
 @client.async_event
 def on_message(message):
     author = message.author
     if message.content.startswith('!clear'):
         clear_chat(message)
-    elif message.content.startswith('!join'):
-        join_room(message)
     elif message.content.startswith('!tubesearch'):
         youtube_search(message)
     elif message.content.startswith('!addrole'):
@@ -145,10 +131,6 @@ def on_message(message):
 # Login
 @asyncio.coroutine
 def login():
-    print("Logging in...")
-    yield from client.connect()
-    yield from client.login(EMAIL, PASSWRD)
-    yield from client.accept_invite('https://discord.gg/abcdefg')
-    print("Joined server.")
+    yield from client.run(client.start(BOT_TOKEN))
 
 login()
