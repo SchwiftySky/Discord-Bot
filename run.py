@@ -132,5 +132,6 @@ def on_message(message):
 @asyncio.coroutine
 def login():
     yield from client.run(client.start(BOT_TOKEN))
+    on_message()
 
 login()
