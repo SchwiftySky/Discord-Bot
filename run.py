@@ -23,8 +23,8 @@ from bs4 import BeautifulSoup
 
 # Mods who have more permissions
 # MOD_PERM = ['Schwifty Sky']
-WEATHER_API = 'abde6ad61b1403ac989911612f3de161'
-BOT_TOKEN = 'MjMyNDUyOTQ4NDQ4Mzc4ODgy.CtPIMg.mHlJFi4JyrUzGWdowxT47TTUoz8'
+WEATHER_API = ''
+BOT_TOKEN = ''
 # Disable the SSL warning, that is printed to the console.
 requests.packages.urllib3.disable_warnings()
 client = discord.Client()
