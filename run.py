@@ -23,12 +23,13 @@ from bs4 import BeautifulSoup
 
 # Mods who have more permissions
 # MOD_PERM = ['Schwifty Sky']
-WEATHER_API = ''
-BOT_TOKEN = ''
+WEATHER_API = 'abde6ad61b1403ac989911612f3de161'
+BOT_TOKEN = 'MjMyNDUyOTQ4NDQ4Mzc4ODgy.CtPIMg.mHlJFi4JyrUzGWdowxT47TTUoz8'
 # Disable the SSL warning, that is printed to the console.
 requests.packages.urllib3.disable_warnings()
 client = discord.Client()
 loop = asyncio.get_event_loop()
+
 
 # Coin toss
 def coin_toss(message):
@@ -124,17 +125,6 @@ def on_message(message):
         clever_bot(message)
     elif message.content.startswith('!cointoss'):
         coin_toss(message)
-    else:
-        return None
 
 
-# Login
-@asyncio.coroutine
-def login():
-    try:
-        loop.run_until_complete(client.start(BOT_TOKEN))
-        on_message()
-    except KeyboardInterrupt:
-        loop.run_until_complete(client.logout())
-
-login()
+client.run(BOT_TOKEN)
